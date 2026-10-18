@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio Support · Folio</title>
+<meta name="description" content="If something isn&#39;t working, you find wrong information, or you have a suggestion, you can reach us as described below.">
+<style>
+/* 和 App 一样的黑白灰：浅色为主，跟随系统切深色 */
+:root { color-scheme: light; --bg: #ffffff; --surface: #fafafa; --line: #e5e5e5; --n900: #171717; --n600: #525252; --n400: #737373;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg: #0a0a0a; --surface: #141414; --line: #2a2a2a; --n900: #f5f5f5; --n600: #c4c4c4; --n400: #8a8a8a; } }
+:root[data-theme="dark"] { color-scheme: dark; --bg: #0a0a0a; --surface: #141414; --line: #2a2a2a; --n900: #f5f5f5; --n600: #c4c4c4; --n400: #8a8a8a; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--n900); font-family: var(--sans); -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 48px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.mark { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; background: var(--surface); }
+.mark svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: .75; stroke-linecap: round; stroke-linejoin: round; }
+.brand b { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+.brand span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .15em; color: var(--n400); margin-top: 2px; }
+.lang { font-size: 13px; color: var(--n600); text-decoration: none; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; }
+h1 { font-size: 26px; line-height: 1.3; margin: 32px 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+.date { font-family: var(--mono); font-size: 12px; color: var(--n400); margin: 0 0 20px; }
+.intro { font-size: 15px; line-height: 1.85; color: var(--n600); margin: 0 0 8px; }
+h2 { font-size: 17px; margin: 30px 0 8px; scroll-margin-top: 16px; }
+.toc { margin: 20px 0 8px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.toc b { display: block; font-size: 12px; font-family: var(--mono); letter-spacing: .12em; color: var(--n400); margin-bottom: 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; columns: 2 220px; column-gap: 20px; }
+.toc li { font-size: 14px; line-height: 1.5; padding: 4px 0; break-inside: avoid; }
+.toc a { color: var(--n600); text-decoration: none; }
+.toc a:hover { color: var(--n900); text-decoration: underline; }
+p, li { font-size: 15px; line-height: 1.85; color: var(--n600); }
+p { margin: 0 0 10px; }
+ul { margin: 0 0 12px; padding-left: 20px; }
+a { color: var(--n900); text-underline-offset: 3px; overflow-wrap: anywhere; }
+a:focus-visible { outline: 2px solid var(--n900); outline-offset: 2px; border-radius: 4px; }
+.contact { margin: 24px 0 8px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.contact small { display: block; font-size: 12px; color: var(--n400); margin-bottom: 4px; }
+.contact b { font-size: 17px; overflow-wrap: anywhere; }
+.btn { display: inline-block; margin-top: 14px; padding: 11px 18px; border-radius: 999px; background: var(--n900); color: var(--bg); font-size: 14px; font-weight: 500; text-decoration: none; }
+.cards { display: grid; gap: 12px; margin: 28px 0; }
+.card { display: block; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: inherit; text-decoration: none; }
+.card b { display: block; font-size: 16px; margin-bottom: 4px; }
+.card span { font-size: 13px; color: var(--n600); }
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--n400); display: flex; flex-wrap: wrap; gap: 8px 16px; }
+footer a { color: var(--n600); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M6.97 7.69L9.34 9.72M17.03 7.69L14.66 9.72M6.97 16.31L9.34 14.28M17.03 16.31L14.66 14.28"/></svg></span><div><b>Folio</b><span>LEARNING INDEX</span></div></a>
+  <a class="lang" href="support.html" hreflang="zh-Hans">中文</a>
+</header>
+<h1>Folio Support</h1>
+<p class="intro">If something isn&#39;t working, you find wrong information, or you have a suggestion, you can reach us as described below.</p>
+<div class="contact"><small>Email</small><b><a href="mailto:1421718903@qq.com">1421718903@qq.com</a></b><br><a class="btn" href="mailto:1421718903@qq.com">Write an email</a></div>
+<h2 id="s1">Contact</h2>
+<p>Email us at: <a href="mailto:1421718903@qq.com">1421718903@qq.com</a></p>
+<p>In the app, you can also go to Me → Help &amp; support → Contact us and tap Copy email to copy the address, or Write an email to open your mail app directly.</p>
+<p>Folio is maintained by an individual developer. We do our best to reply to every email, but cannot guarantee a response time.</p>
+<h2 id="s2">What to include</h2>
+<p>To help us find the problem faster, please include as much of the following as you can:</p>
+<ul>
+<li>Device model, for example iPhone 15</li>
+<li>iOS version: Settings → General → About → iOS Version</li>
+<li>App version: Settings → General → iPhone Storage → Folio</li>
+<li>Data version: in the app, Me → Settings → Content updates, shown as “Version …”</li>
+<li>If you use the web version, your browser&#39;s name and version</li>
+<li>What you did before the problem appeared, and whether it happens every time</li>
+<li>Screenshots or a screen recording, if you can</li>
+</ul>
+<p>If you tap Write an email in the app, the app version, data version, system and interface language are filled in for you, so you only need to add your device model, the steps and screenshots. You can also tap Troubleshooting info on the Contact us page to copy these items.</p>
+<p>Please do not include personal information that is not related to the problem.</p>
+<h2 id="s3">Wrong, removed or infringing resources</h2>
+<p>In the app: Me → Help &amp; support → Report a problem, or tap “Something wrong? Report it” on a resource&#39;s detail page. Choose a type, describe the issue and submit.</p>
+<p>After you submit, if the report was copied to your clipboard, paste it into an email to <a href="mailto:1421718903@qq.com">1421718903@qq.com</a>. If the app opened a pre-filled email, check it and send it.</p>
+<p>You can also email <a href="mailto:1421718903@qq.com">1421718903@qq.com</a> directly with the resource name and the problem.</p>
+<p>For rights complaints, please state your relationship to the content (rights holder or agent), the listing concerned and how you would like it handled. We may ask for proof of rights or authorization if needed (please do not send ID documents that are not needed for verification). After checking, we will correct or remove the listing as appropriate.</p>
+<p>A removed listing disappears from the app&#39;s lists, search and picks, and links to it show “This resource is no longer available”.</p>
+<h2 id="s4">Where are my saves? Can I lose them?</h2>
+<p>Saves are stored only on the device you are using. You can find them under Me, and “View all” lets you search and filter them. Folio has no accounts, so saves do not sync between devices, and saves in the app and the web version are separate.</p>
+<p>Saves are lost if you delete the app or clear website data. The iOS app keeps a second copy of your saves and settings in its own settings storage, so if the system clears the app&#39;s web data when the device is low on storage, they come back the next time you open the app. In the web version, Safari and some other browsers may clear your saves when the device is low on storage or if you do not open the Folio website for a long time. If you restore your device from an iCloud or computer backup that includes app data, your saves may be restored too. If a resource is taken down, it stays in your saves as a greyed-out “Removed” row that can&#39;t be opened; tap Remove to clear it from your saves.</p>
+<h2 id="s5">How do I change the language?</h2>
+<p>Go to Me → Settings → Language and choose 中文, English or System. The small text on that row is shown in the other language (“Language” in the Chinese interface, “语言” in the English one), so you can find it even if you picked the wrong language.</p>
+<h2 id="s6">How do I switch light or dark mode?</h2>
+<p>Go to Me → Settings → Appearance and choose Light, Dark or System, or tap the light/dark button at the top right to switch directly.</p>
+<h2 id="s7">How do I turn off vibration on taps?</h2>
+<p>The iPhone app vibrates lightly when you tap, switch or press and hold. You can turn this off under Me → Settings → Haptics. If System Haptics is off in the iPhone&#39;s Settings → Sounds &amp; Haptics, the app does not vibrate either. The web version only vibrates briefly for long-press previews in browsers on Android phones, and you can turn that off in the same place.</p>
+<h2 id="s8">Why are there no links to original sites?</h2>
+<p>Folio only recommends and organizes resources: it shows each resource&#39;s name, source and category, plus a summary, highlights and a learning guide written by Folio with AI assistance and reviewed by a person, and does not republish original content. The app does not show or open links to original sites. To see the original, search for the resource name and source name shown on the card.</p>
+<h2 id="s9">Do you collect my data?</h2>
+<p>Folio needs no account. The app does not upload your saves, settings or usage to us and has no ads or analytics. Fonts are bundled in the app, and the app loads no fonts or scripts from Google or any other third-party site. We only receive information when you email us, or when you choose in iOS to share analytics with app developers. For full details, see the Privacy Policy (in the app: Me → Help &amp; support → Privacy Policy).</p>
+
+<footer>
+  <a href="index.html">Home</a>
+  <a href="privacy-en.html">Privacy Policy</a>
+  <a href="support-en.html">Support</a>
+  <span>© 2026 Folio</span>
+</footer>
+</div>
+</body>
+</html>

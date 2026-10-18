@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio 技术支持 · Folio</title>
+<meta name="description" content="使用 Folio 时遇到问题、发现内容有误，或者有任何建议，都可以通过下面的方式联系我们。">
+<style>
+/* 和 App 一样的黑白灰：浅色为主，跟随系统切深色 */
+:root { color-scheme: light; --bg: #ffffff; --surface: #fafafa; --line: #e5e5e5; --n900: #171717; --n600: #525252; --n400: #737373;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; --bg: #0a0a0a; --surface: #141414; --line: #2a2a2a; --n900: #f5f5f5; --n600: #c4c4c4; --n400: #8a8a8a; } }
+:root[data-theme="dark"] { color-scheme: dark; --bg: #0a0a0a; --surface: #141414; --line: #2a2a2a; --n900: #f5f5f5; --n600: #c4c4c4; --n400: #8a8a8a; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--n900); font-family: var(--sans); -webkit-text-size-adjust: 100%; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 48px; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+.mark { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; background: var(--surface); }
+.mark svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: .75; stroke-linecap: round; stroke-linejoin: round; }
+.brand b { font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+.brand span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .15em; color: var(--n400); margin-top: 2px; }
+.lang { font-size: 13px; color: var(--n600); text-decoration: none; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; }
+h1 { font-size: 26px; line-height: 1.3; margin: 32px 0 6px; letter-spacing: -.01em; text-wrap: balance; }
+.date { font-family: var(--mono); font-size: 12px; color: var(--n400); margin: 0 0 20px; }
+.intro { font-size: 15px; line-height: 1.85; color: var(--n600); margin: 0 0 8px; }
+h2 { font-size: 17px; margin: 30px 0 8px; scroll-margin-top: 16px; }
+.toc { margin: 20px 0 8px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.toc b { display: block; font-size: 12px; font-family: var(--mono); letter-spacing: .12em; color: var(--n400); margin-bottom: 6px; }
+.toc ol { list-style: none; margin: 0; padding: 0; columns: 2 220px; column-gap: 20px; }
+.toc li { font-size: 14px; line-height: 1.5; padding: 4px 0; break-inside: avoid; }
+.toc a { color: var(--n600); text-decoration: none; }
+.toc a:hover { color: var(--n900); text-decoration: underline; }
+p, li { font-size: 15px; line-height: 1.85; color: var(--n600); }
+p { margin: 0 0 10px; }
+ul { margin: 0 0 12px; padding-left: 20px; }
+a { color: var(--n900); text-underline-offset: 3px; overflow-wrap: anywhere; }
+a:focus-visible { outline: 2px solid var(--n900); outline-offset: 2px; border-radius: 4px; }
+.contact { margin: 24px 0 8px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+.contact small { display: block; font-size: 12px; color: var(--n400); margin-bottom: 4px; }
+.contact b { font-size: 17px; overflow-wrap: anywhere; }
+.btn { display: inline-block; margin-top: 14px; padding: 11px 18px; border-radius: 999px; background: var(--n900); color: var(--bg); font-size: 14px; font-weight: 500; text-decoration: none; }
+.cards { display: grid; gap: 12px; margin: 28px 0; }
+.card { display: block; padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); color: inherit; text-decoration: none; }
+.card b { display: block; font-size: 16px; margin-bottom: 4px; }
+.card span { font-size: 13px; color: var(--n600); }
+footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--n400); display: flex; flex-wrap: wrap; gap: 8px 16px; }
+footer a { color: var(--n600); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="brand" href="index.html"><span class="mark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="6" r="1.6"/><circle cx="19" cy="6" r="1.6"/><circle cx="5" cy="18" r="1.6"/><circle cx="19" cy="18" r="1.6"/><path d="M6.97 7.69L9.34 9.72M17.03 7.69L14.66 9.72M6.97 16.31L9.34 14.28M17.03 16.31L14.66 14.28"/></svg></span><div><b>Folio</b><span>LEARNING INDEX</span></div></a>
+  <a class="lang" href="support-en.html" hreflang="en">English</a>
+</header>
+<h1>Folio 技术支持</h1>
+<p class="intro">使用 Folio 时遇到问题、发现内容有误，或者有任何建议，都可以通过下面的方式联系我们。</p>
+<div class="contact"><small>联系邮箱</small><b><a href="mailto:1421718903@qq.com">1421718903@qq.com</a></b><br><a class="btn" href="mailto:1421718903@qq.com">写邮件</a></div>
+<h2 id="s1">联系方式</h2>
+<p>请发邮件到：<a href="mailto:1421718903@qq.com">1421718903@qq.com</a></p>
+<p>在 App 内，也可以在 我的 → 帮助与支持 → 联系我们 点「复制邮箱」复制邮箱地址，或点「写邮件」直接打开邮件 App。</p>
+<p>Folio 由一位个人开发者维护。每封邮件我们都会尽力回复，但无法保证回复时间。</p>
+<h2 id="s2">反馈问题时请附上</h2>
+<p>为了更快找到问题，请尽量在邮件里写明：</p>
+<ul>
+<li>设备型号，例如 iPhone 15</li>
+<li>iOS 版本：设置 → 通用 → 关于本机 → iOS 版本</li>
+<li>App 版本：设置 → 通用 → iPhone 储存空间 → Folio</li>
+<li>数据版本：App 内 我的 → 设置 → 内容更新，显示为「版本 …」</li>
+<li>使用网页版时，请写明浏览器名称和版本</li>
+<li>出现问题前的操作步骤，以及问题是否每次都会出现</li>
+<li>截图或录屏（如果方便）</li>
+</ul>
+<p>在 App 内点「写邮件」时，App 版本、数据版本、系统和界面语言会自动填进邮件，你只需要补充设备型号、操作步骤和截图；也可以在「联系我们」页面点「问题排查信息」复制这几项。</p>
+<p>请不要在邮件里附上与问题无关的个人信息。</p>
+<h2 id="s3">资源有误、下线或侵权</h2>
+<p>在 App 内：我的 → 帮助与支持 → 举报 / 纠错，或在资源详情页点「这条信息有误？纠错 / 举报」。选择反馈类型、写明情况后提交。</p>
+<p>提交后，如果反馈内容被复制到了剪贴板，请把它粘贴到邮件里发到 <a href="mailto:1421718903@qq.com">1421718903@qq.com</a>；如果 App 打开了一封填好内容的邮件，确认后发送即可。</p>
+<p>也可以直接发邮件到 <a href="mailto:1421718903@qq.com">1421718903@qq.com</a>，写明资源名称和问题。</p>
+<p>侵权投诉请写明：你与该内容的关系（权利人或代理人）、涉及的条目，以及希望如何处理。必要时我们会请你提供权利或授权证明（请勿发送与核实无关的证件信息）。核实后，我们会视情况更正或移除相关条目。</p>
+<p>被移除的条目会从 App 的列表、搜索和推荐中消失；打开它的链接时，会显示「这条资源已下线」。</p>
+<h2 id="s4">收藏在哪里，会丢吗？</h2>
+<p>收藏只保存在你当前使用的设备上，可以在「我的」里查看，点「查看全部」可以搜索和筛选。Folio 没有账号，收藏不会在设备之间同步，App 和网页版的收藏也互不相通。</p>
+<p>删除 App 或清除网站数据，收藏都会丢失。iOS App 会在 App 自己的设置存储里另存一份收藏和设置，即使设备存储空间不足时系统清理了 App 的网页数据，下次打开也会自动恢复。使用网页版时，设备存储空间不足或较长时间没有打开 Folio 网页，Safari 等浏览器都可能自动清除收藏。从包含 App 数据的 iCloud 或电脑备份恢复设备时，收藏可能会一起恢复。如果某条资源被下架，它在收藏里会显示为灰色的「已下线」，不能再打开，点「移除」就能把它从收藏中删掉。</p>
+<h2 id="s5">怎么切换语言？</h2>
+<p>在 我的 → 设置 → 语言 中选择「中文」「English」或「跟随系统」。这一行的小字会用另一种语言显示（中文界面显示“Language”，英文界面显示“语言”），即使选错了语言也能找到。</p>
+<h2 id="s6">怎么切换深浅色？</h2>
+<p>在 我的 → 设置 → 外观 中选择「浅色」「深色」或「跟随系统」，也可以点顶部右侧的深浅色按钮直接切换。</p>
+<h2 id="s7">怎么关掉点按时的震动？</h2>
+<p>iPhone App 在点按、切换和长按时会轻微震动。在 我的 → 设置 → 触感反馈 中可以关掉。iPhone「设置 → 声音与触感」里关闭了「系统触感反馈」时，App 也不会震动。网页版只在安卓手机的浏览器里、长按预览时短震一下，同样可以在这里关掉。</p>
+<h2 id="s8">为什么没有原站链接？</h2>
+<p>Folio 只做推荐和整理，展示资源的名称、来源、分类，以及本站撰写的导语、速览和学习指南（AI 辅助，经人工审核），不转载原站内容。App 里不显示、也不能打开原站链接。想查看原内容，请用卡片上的资源名称和来源名称自行搜索。</p>
+<h2 id="s9">会收集我的数据吗？</h2>
+<p>Folio 不需要账号，App 不会把你的收藏、设置或使用情况上传给我们，也没有广告和统计工具。字体打包在 App 里，App 不会从 Google 等第三方网站加载字体或脚本。只有你主动给我们发邮件，或在 iOS 中选择与 App 开发者共享分析数据时，我们才会收到相关信息。完整说明请看隐私政策（App 内：我的 → 帮助与支持 → 隐私政策）。</p>
+
+<footer>
+  <a href="index.html">首页</a>
+  <a href="privacy.html">隐私政策</a>
+  <a href="support.html">技术支持</a>
+  <span>© 2026 Folio</span>
+</footer>
+</div>
+</body>
+</html>
