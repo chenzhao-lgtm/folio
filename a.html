@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Folio 日报</title>
+<meta name="description" content="Folio 日报：3D、AI、游戏、设计、航天等科技领域的每日动态，编辑部撰写（AI 辅助，经人工审核）。">
+<meta property="og:title" content="Folio 日报">
+<meta property="og:description" content="科技每日动态，编辑部撰写。">
+<meta property="og:type" content="article">
+<!--
+  分享用的文章页：App 里点「分享 → 发送链接」发出去的就是这一页（a.html?id=<编号>）。
+  从阿里云读和 App 同一份内容（about.js 的 dataUrl），显示标题、导语、核心速览和编辑说，全文引导去 App 里看。
+  下架清单：同时读同一个网站上的 takedown.json（build-site.mjs 根据 takedown.js 生成），清单里的文章不显示、也不出现在最新动态里；
+  读不到清单时不显示任何文章（宁可打不开，也不把已下架的内容露出去）。下架以后记得把 site/ 重新传一次，这一页才跟着变。
+  故意写得很“老派”（不用新语法和新样式），老 iPhone 的 Safari、微信里的浏览器都能打开。
+  改了这一页：把它和 site/ 里其他文件一起传到 GitHub Pages（仓库 chenzhao-lgtm/folio）。
+-->
+<style>
+:root { --bg: #ffffff; --card: #fafafa; --line: #e5e5e5; --ink: #111111; --sub: #525252; --faint: #8a8a8a; --acc: #111111; --accbg: #f1f1f1; }
+@media (prefers-color-scheme: dark) { :root { --bg: #0a0a0a; --card: #151515; --line: #2a2a2a; --ink: #f5f5f5; --sub: #c4c4c4; --faint: #8a8a8a; --accbg: #1f1f1f; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #ffffff; background: var(--bg); color: #111111; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; line-height: 1.7; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px 40px; }
+.top { display: -webkit-box; display: flex; -webkit-box-align: center; align-items: center; padding: 18px 0; border-bottom: 1px solid #e5e5e5; border-bottom-color: var(--line); }
+.logo { width: 34px; height: 34px; margin-right: 10px; }
+.brand { font-weight: 600; font-size: 17px; }
+.brand small { display: block; font-weight: 400; font-size: 11px; letter-spacing: .12em; color: #8a8a8a; color: var(--faint); line-height: 1.2; }
+.top a.get { margin-left: auto; padding: 7px 14px; border-radius: 999px; background: #111111; background: var(--ink); color: #ffffff; color: var(--bg); text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+.tag { display: inline-block; margin-top: 22px; padding: 3px 12px; border-radius: 999px; background: #f1f1f1; background: var(--accbg); color: var(--acc); font-size: 13px; font-weight: 600; }
+h1 { margin: 12px 0 6px; font-size: 26px; line-height: 1.35; letter-spacing: -.01em; }
+.meta { font-size: 12.5px; color: #8a8a8a; color: var(--faint); }
+.lede { margin: 18px 0 0; font-size: 16.5px; color: #333333; color: var(--sub); }
+.box { margin-top: 20px; padding: 16px 18px; border-radius: 16px; background: #fafafa; background: var(--card); border: 1px solid #e5e5e5; border-color: var(--line); }
+.box b { display: block; font-size: 12px; color: #8a8a8a; color: var(--faint); font-weight: 500; letter-spacing: .04em; }
+.box ul { margin: 8px 0 0; padding-left: 20px; }
+.box li { margin: 4px 0; font-size: 15px; }
+.take { margin-top: 18px; font-size: 15.5px; }
+.take span { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 6px; background: #111111; background: var(--ink); color: #ffffff; color: var(--bg); font-size: 12.5px; font-weight: 600; vertical-align: 2px; }
+.sec h2 { margin: 26px 0 6px; font-size: 18px; }
+.sec p { margin: 8px 0; font-size: 16px; }
+.more { position: relative; margin-top: 4px; }
+.more:before { content: ""; position: absolute; left: 0; right: 0; top: -90px; height: 90px; background: -webkit-linear-gradient(rgba(255,255,255,0), #ffffff); background: linear-gradient(rgba(255,255,255,0), var(--bg)); }
+.cta { margin-top: 18px; padding: 22px 20px; border-radius: 20px; background: #111111; background: var(--ink); color: #ffffff; color: var(--bg); text-align: center; }
+.cta b { display: block; font-size: 17px; }
+.cta p { margin: 6px 0 14px; font-size: 13px; opacity: .75; }
+.cta a { display: inline-block; padding: 10px 22px; border-radius: 999px; background: #ffffff; background: var(--bg); color: #111111; color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; }
+.list a { display: block; padding: 16px 0; border-bottom: 1px solid #e5e5e5; border-bottom-color: var(--line); color: inherit; text-decoration: none; }
+.list b { display: block; font-size: 16px; line-height: 1.5; }
+.list span { display: block; margin-top: 4px; font-size: 13.5px; color: #525252; color: var(--sub); }
+.list i { font-style: normal; font-size: 12px; color: #8a8a8a; color: var(--faint); }
+.note { margin-top: 26px; font-size: 12px; color: #8a8a8a; color: var(--faint); text-align: center; }
+.msg { padding: 60px 0; text-align: center; color: #8a8a8a; color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="11"/><circle cx="12" cy="12" r="2.2"/><circle cx="6.5" cy="6.5" r="1.4"/><circle cx="17.5" cy="6.5" r="1.4"/><circle cx="6.5" cy="17.5" r="1.4"/><circle cx="17.5" cy="17.5" r="1.4"/><path d="M7.6 7.6l2.8 2.8M16.4 7.6l-2.8 2.8M7.6 16.4l2.8-2.8M16.4 16.4l-2.8-2.8"/></svg>
+    <div class="brand" id="brand">Folio 日报<small>TECH DAILY</small></div>
+    <a class="get" id="get" href="https://apps.apple.com/app/id6824224178">下载 App</a>
+  </div>
+  <div id="main"><div class="msg" id="loading">正在载入…</div></div>
+</div>
+<script>
+(function () {
+  // 和 App 同一份线上内容（about.js 的 dataUrl）；App Store 地址
+  var DATA_URL = "https://folio-data-2026.oss-cn-hongkong.aliyuncs.com/folio/data.json";
+  var STORE = "https://apps.apple.com/app/id6824224178";
+
+  function q(name) {
+    var m = new RegExp("[?&]" + name + "=([^&#]*)").exec(location.search);
+    try { return m ? decodeURIComponent(m[1]) : ""; } catch (e) { return ""; }
+  }
+  var id = q("id");
+  var lang = q("lang") || ((navigator.language || "zh").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+  var en = lang !== "zh";
+  var T = {
+    load: ["正在载入…", "Loading…"], fail: ["没有读到内容，请稍后再试，或者下载 Folio 日报 App 阅读。", "Couldn't load the article. Please try again later, or read it in the Folio app."],
+    gone: ["这篇文章找不到了，可能已经下线。", "This article can't be found. It may have been removed."],
+    get: ["下载 App", "Get the app"], pts: ["AI 核心速览", "AI summary"], take: ["编辑说", "Editor"],
+    cta: ["在 Folio 日报 App 里读全文", "Read the full article in Folio"], ctaSub: ["还有编辑的看法和结论，3D、AI、游戏、设计、航天等科技动态每天更新。", "Plus our editors' take. Daily tech news on 3D, AI, games, design, space and more."],
+    store: ["去 App Store 下载", "Get it on the App Store"], latest: ["最新动态", "Latest"],
+    note: ["文章由 Folio 编辑部根据官方公开信息撰写（AI 辅助，经人工审核），不转载原文。", "Written by the Folio editors from official public information (AI-assisted, reviewed by a person)."],
+    src: ["来源：", "Source: "]
+  };
+  function t(k) { return T[k][en ? 1 : 0]; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+  function pick(o, k) { return en && o.en && o.en[k] ? o.en[k] : o[k]; }
+  function day(s) { var d = new Date(s); return isNaN(d) ? "" : d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate(); }
+
+  document.getElementById("get").innerHTML = t("get");
+  document.getElementById("loading").innerHTML = t("load");
+  if (en) document.documentElement.lang = "en";
+  var main = document.getElementById("main");
+
+  function show(d, down) {
+    var inds = {};
+    (d.industries || []).forEach(function (i) { inds[i.id] = i; });
+    var all = (d.news || []).concat(d.items || []);
+    var it = null;
+    for (var i = 0; i < all.length; i++) if (all[i].id === id) { it = all[i]; break; }
+    if (it && down[it.id]) it = null; // 已下架：和找不到一样
+    if (!id) return showList(d, inds, down);
+    if (!it) { main.innerHTML = '<div class="msg">' + t("gone") + "</div>" + cta(); return; }
+    var ind = inds[it.industry] || {}, acc = ind.accent || {};
+    document.documentElement.style.setProperty("--acc", acc.ink || "#111111");
+    var title = pick(it, "title"), sum = pick(it, "summary") || pick(it, "blurb");
+    document.title = title + " · Folio";
+    var html = '<span class="tag">' + esc(en && ind.en ? ind.en.name : (ind.name || "").replace(/ ?行业$/, "")) + "</span>";
+    html += "<h1>" + esc(title) + "</h1>";
+    html += '<div class="meta">' + esc([en ? "Folio editors" : "Folio 编辑部", day(it.publishedAt || it.addedAt), it.source ? t("src") + it.source : ""].filter(Boolean).join(" · ")) + "</div>";
+    html += '<p class="lede">' + rich(pick(it, "lede") || sum) + "</p>";
+    var pts = pick(it, "points") || [];
+    if (pts.length) html += '<div class="box"><b>' + t("pts") + "</b><ul>" + pts.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></div>";
+    var take = pick(it, "take");
+    if (take) html += '<p class="take"><span>' + t("take") + "</span>" + esc(take) + "</p>";
+    // 正文只露出第一节的开头，后面引导去 App
+    var secs = pick(it, "sections") || [];
+    if (secs[0] && secs[0].p && secs[0].p[0]) html += '<div class="sec">' + (secs[0].h ? "<h2>" + esc(secs[0].h) + "</h2>" : "") + "<p>" + rich(secs[0].p[0]) + '</p></div><div class="more"></div>';
+    main.innerHTML = html + cta() + '<p class="note">' + t("note") + "</p>";
+  }
+  function showList(d, inds, down) {
+    var list = (d.news || []).filter(function (it) { return !down[it.id]; }).sort(function (a, b) { return a.publishedAt < b.publishedAt ? 1 : -1; }).slice(0, 20);
+    main.innerHTML = '<h1 style="margin-top:22px">' + t("latest") + '</h1><div class="list">' + list.map(function (it) {
+      var ind = inds[it.industry] || {};
+      return '<a href="?id=' + encodeURIComponent(it.id) + (en ? "&lang=" + lang : "") + '"><i>' + esc((en && ind.en ? ind.en.name : (ind.name || "").replace(/ ?行业$/, "")) + " · " + day(it.publishedAt)) + "</i><b>" + esc(pick(it, "title")) + "</b><span>" + esc(pick(it, "summary")) + "</span></a>";
+    }).join("") + "</div>" + cta() + '<p class="note">' + t("note") + "</p>";
+  }
+  function cta() {
+    return '<div class="cta"><b>' + t("cta") + "</b><p>" + t("ctaSub") + '</p><a href="' + STORE + '">' + t("store") + "</a></div>";
+  }
+  function fail() { main.innerHTML = '<div class="msg">' + t("fail") + "</div>" + cta(); }
+
+  // 读一个 JSON 文件，读到了 cb(内容)，没读到或格式不对 cb(null)
+  function getJSON(url, cb) {
+    var x = new XMLHttpRequest();
+    x.open("GET", url, true);
+    x.onload = function () {
+      var v = null;
+      if (x.status >= 200 && x.status < 300) { try { v = JSON.parse(x.responseText); } catch (e) { v = null; } }
+      cb(v);
+    };
+    x.onerror = function () { cb(null); };
+    x.send();
+  }
+  // 下架清单的格式：{ "updated": "…", "items": [ { "id": "…", "date": "…" } ] }。格式不对按没读到算
+  function downOf(j) {
+    if (!j || typeof j !== "object" || !Array.isArray(j.items)) return null;
+    var down = Object.create(null); // 不带原型：编号叫 constructor 之类的也不会误判成已下架
+    for (var i = 0; i < j.items.length; i++) if (j.items[i] && typeof j.items[i].id === "string") down[j.items[i].id.replace(/^\s+|\s+$/g, "")] = true;
+    return down;
+  }
+  // 内容和下架清单两份都读到了才显示；清单加时间戳，不读浏览器和 CDN 缓存里的旧清单
+  var data, down, left = 2;
+  function ready() {
+    if (--left) return;
+    if (!data || !down) return fail();
+    try { show(data, down); } catch (e) { fail(); }
+  }
+  getJSON(DATA_URL, function (v) { data = v; ready(); });
+  getJSON("takedown.json?t=" + new Date().getTime(), function (v) { down = downOf(v); ready(); });
+})();
+</script>
+</body>
+</html>
